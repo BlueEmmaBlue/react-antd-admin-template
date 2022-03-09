@@ -4,8 +4,7 @@ import "./index.less";
 const Logo = () => {
   return (
     <div className="sidebar-logo-container">
-      <img src={logo} className="sidebar-logo" alt="logo" />
-      <h1 className="sidebar-title">难凉热血</h1>
+      <h1 className="sidebar-title">北京大学 李硕</h1>
     </div>
   );
 };

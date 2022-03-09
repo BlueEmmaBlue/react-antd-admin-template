@@ -7,7 +7,7 @@ const Doc = () => {
   `
   return (
     <div className="app-container">
-      <TypingCard title='作者博客' source={cardContent}/>
+      <TypingCard title='我的信息' source={cardContent} />
     </div>
   );
 }
