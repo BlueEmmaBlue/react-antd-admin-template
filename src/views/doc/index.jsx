@@ -1,10 +1,22 @@
 import React from 'react';
 import TypingCard from '@/components/TypingCard'
+import { Card } from 'antd';
 const Doc = () => {
-  const cardContent = `
-    作者博客请戳这里 <a href="https://nlrx-wjc.github.io/Blog/" target="_blank">难凉热血的博客</a>。
-    欢迎大家与我交流，如果觉得博客不错，也麻烦给博客赏个 star 哈。
-  `
+  const cardContent =
+    `<div className="site-card-border-less-wrapper">
+      <Card title="Card title" bordered={false} style={{ width: 300 }}>
+        <p>姓名：李硕</p>
+        <p>性别：男</p>
+        <p>籍贯：山东</p>
+        <p>手机：15201348798</p>
+        <p>微信：aiguoyongjun</p>
+        <p>所在地：北京</p>
+        <p>单位：北京大学</p>
+      </Card>
+    </div>`
+
+
+
   return (
     <div className="app-container">
       <TypingCard title='我的信息' source={cardContent} />

@@ -4,28 +4,35 @@ import { transactionList } from "@/api/remoteSearch";
 
 const columns = [
   {
-    title: "Order_No",
-    dataIndex: "order_no",
-    key: "order_no",
-    width: 200,
+    title: "序号",
+    dataIndex: "order",
+    key: "order",
+    width: 100,
   },
   {
-    title: "Price",
-    dataIndex: "price",
-    key: "price",
+    title: "时间",
+    dataIndex: "time",
+    key: "time",
     width: 195,
-    render: text => (`$${text}`),
+    render: text => (text),
   },
   {
-    title: "Status",
-    key: "tag",
-    dataIndex: "tag",
+    title: "劳动事项",
+    key: "event",
+    dataIndex: "event",
     width: 100,
     render: (tag) => (
-      <Tag color={tag === "pending" ? "magenta" : "green"} key={tag}>
+      <Tag color={"magenta"} key={tag}>
         {tag}
       </Tag>
     ),
+  },
+  {
+    title: "贡献值",
+    key: "value",
+    dataIndex: "value",
+    width: 100,
+    render: text => (text),
   },
 ];
 
@@ -34,17 +41,34 @@ class TransactionTable extends Component {
   state = {
     list: [],
   };
-  fetchData = () => {
-    transactionList().then((response) => {
-      const list = response.data.data.items.slice(0, 13);
-      if (this._isMounted) { 
-        this.setState({ list });
-      }
-    });
-  };
+  // fetchData = () => {
+  //   transactionList().then((response) => {
+  //     const list = response.data.data.items.slice(0, 13);
+  //     if (this._isMounted) {
+  //       this.setState({ list });
+  //     }
+  //   });
+  // };
+
+  getList = () => {
+    fetch('getList', {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ list: data });
+      })
+  }
+
+
+
   componentDidMount() {
     this._isMounted = true;
-    this.fetchData();
+    this.getList();
   }
   componentWillUnmount() {
     this._isMounted = false;
@@ -54,7 +78,6 @@ class TransactionTable extends Component {
       <Table
         columns={columns}
         dataSource={this.state.list}
-        pagination={false}
       />
     );
   }

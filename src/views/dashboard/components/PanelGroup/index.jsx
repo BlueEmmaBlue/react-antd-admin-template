@@ -5,27 +5,27 @@ import "./index.less";
 
 const chartList = [
   {
-    type: "New Visits",
+    type: "拥军金额/元",
     icon: "user",
-    num: 102400,
+    num: 10000,
     color: "#40c9c6",
   },
   {
-    type: "Messages",
+    type: "拥金余额/元",
     icon: "message",
-    num: 81212,
+    num: 2000,
     color: "#36a3f7",
   },
   {
-    type: "Purchases",
+    type: "拥军劳动/件",
     icon: "pay-circle",
-    num: 9280,
+    num: 100,
     color: "#f4516c",
   },
   {
-    type: "Shoppings",
+    type: "拥军贡献值",
     icon: "shopping-cart",
-    num: 13600,
+    num: 9800,
     color: "#f6ab40",
   },
 ];
