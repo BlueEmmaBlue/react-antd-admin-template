@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import echarts from "@/lib/echarts";
 import { debounce } from "@/utils";
 import { Modal } from 'antd';
+import visit from "@/assets/images/visit.jpg"
 
 class LineChart extends Component {
   static propTypes = {
@@ -156,10 +157,10 @@ class LineChart extends Component {
           }}
           onClick={this.handleClick}
         />
-        <Modal title="Basic Modal" visible={this.state.visible} onCancel={this.handleCancel} onOk={this.handleCancel}>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+        <Modal title="拜访退伍老兵" visible={this.state.visible} onCancel={this.handleCancel} onOk={this.handleCancel} footer={null} width={800}>
+          <h3>活动简述</h3>
+          <p>本次活动进行了河北省沧州县的老兵拜访服务，给老兵们送去了很多生活用品，总计金额3000元，并且听老兵讲述了抗美援朝的故事。</p>
+          <img src={visit} />
         </Modal>
       </>
     );
